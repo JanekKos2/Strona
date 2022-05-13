@@ -33,60 +33,57 @@ if(wyn1 == "xxx"){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">x</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KRZYŻYKI</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn2 == "xxx"){
     for(x=4 ; x<7 ; x++){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">x</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KRZYŻYKI</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn3 == "xxx"){
     for(x=7 ; x<10 ; x++){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">x</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KRZYŻYKI</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn4 == "xxx"){
-    for(x=1 ; x<8 ; x+= 3){
+    for(x=4 ; x<8 ; x+= 3){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">x</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KRZYŻYKI</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn5 == "xxx"){
     for(x=2 ; x<9 ; x+= 3){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">x</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KRZYŻYKI</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn6 == "xxx"){
     for(x=3 ; x<10 ; x+= 3){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">x</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KRZYŻYKI</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn7 == "xxx"){
-    for(x=3 ; x<8 ; x+= 2){
+    for(x=1 ; x<10 ; x+= 2){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">x</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KRZYŻYKI</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn8 == "xxx"){
-    for(x=1 ; x<10 ; x+= 4){
-        document.getElementById("p"+x).innerHTML = '<div style="color:lime;">x</div>' ;
+    for(x=3 ; x<8 ; x+= 4){
+        document.getElementById("p"+x).innerHTML = '<div style="color:lime;">x</div>' ; 
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KRZYŻYKI</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
-
-
-
 
 
 if(wyn1 == "ooo"){
@@ -94,56 +91,56 @@ if(wyn1 == "ooo"){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">o</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KÓŁKA</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn2 == "ooo"){
     for(x=4 ; x<7 ; x++){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">o</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KÓŁKA</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn3 == "ooo"){
     for(x=7 ; x<10 ; x++){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">o</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KÓŁKA</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn4 == "ooo"){
     for(x=1 ; x<8 ; x+= 3){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">o</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KÓŁKA</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn5 == "ooo"){
     for(x=2 ; x<9 ; x+= 3){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">o</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KÓŁKA</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn6 == "ooo"){
     for(x=3 ; x<10 ; x+= 3){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">o</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KÓŁKA</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn7 == "ooo"){
-    for(x=3 ; x<8 ; x+= 2){
+    for(x=1 ; x<10 ; x+= 2){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">o</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KÓŁKA</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 if(wyn8 == "ooo"){
-    for(x=1 ; x<10 ; x+= 4){
+    for(x=3 ; x<8 ; x+= 4){
         document.getElementById("p"+x).innerHTML = '<div style="color:lime;">o</div>' ;
     }
     document.getElementById("info").innerHTML = '<div style="font-size:70px;">WYGRAŁY KÓŁKA</div>' ;
-    tabela.removeEventListener("click",clickField) ;
+    table.removeEventListener("click",clickField) ;
 }
 
 if(remis == 9){
@@ -151,7 +148,6 @@ if(remis == 9){
     remis = 0 ;
 }
 }
-
 resetButton.addEventListener("click",resetTable)
 function resetTable(e){
     document.getElementById("p1").innerHTML = "";
