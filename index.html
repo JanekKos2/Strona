@@ -212,7 +212,7 @@ color: #fff;
 }
 .autocomplete-items {
 position: absolute;
-border: 1px solid #d4d4d4;
+border: 1px solid transparent;
 border-bottom: none;
 border-top: none;
 z-index: 99;
@@ -226,7 +226,7 @@ border-radius: 20px;
 padding: 10px;
 cursor: pointer;
 background-color: #fff;
-border-bottom: 1px solid #d4d4d4;
+border-bottom: 1px solid transparent;
 }
 .autocomplete-items div:hover {
 /*when hovering an item:*/
@@ -234,8 +234,18 @@ background-color: #e9e9e9;
 }
 .autocomplete-active {
 /*when navigating through the items using the arrow keys:*/
-background-color: DodgerBlue !important;
+background-color: grey !important;
 color: #ffffff;
+}
+textarea:focus, input:focus{
+  outline: none;
+}
+.show{
+text-align:center;
+border-radius: 20px;
+}
+.hide{
+display: none;
 }
 </style>
 </head>
@@ -485,8 +495,8 @@ color: #ffffff;
 <br>
 <br>
 
-<div class="d-flex justify-content-center">
-<button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal" style="background-color: purple;">
+<div class="d-flex justify-content-center" >
+<button id="buttonStart" type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal" style="background-color: purple;">
 Poziom trudności
 </button>
 </div>
@@ -510,13 +520,13 @@ Poziom trudności
 </div>
 </div>
 <br>
-  <form autocomplete="off" style="text-align:center;border-radius: 20px;">
-    <div class="autocomplete" style="width:300px;">
-      <input id="myInput" type="text" name="myCountry" placeholder="Pierwiastek">
-    </div>
-  </form>
+  
 
-
+<form id="input" autocomplete="off" style="text-align:center;border-radius: 20px;" class="hide">
+<div id="startBtn" class="autocomplete" style="width:300px;">
+  <input id="myInput" type="text" name="myCountry" placeholder="Pierwiastek">
+</div>
+</form>
 
 
 
@@ -535,8 +545,5 @@ Poziom trudności
 type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
 ></script>
-  <script>
-  autocomplete(document.getElementById("myInput"), countries);
-  </script>
 </body>
 </html>

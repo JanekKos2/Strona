@@ -5,6 +5,7 @@ container = document.getElementsByClassName("symbol") ;
 
 function randomElements(){
 
+
 //console.log(container.length) ;
 for(x = 0; x<container.length; x++){
     if(container[x].textContent != "DE" 
@@ -45,5 +46,6 @@ hard.addEventListener('click',gameStart) ;
 function gameStart(e){
     console.log(e.target.id) ;
     randomElements() ;
+    document.getElementById("input").className = "show"
+    document.getElementById("buttonStart").className = "hide"
 }
-
