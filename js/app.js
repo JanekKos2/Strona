@@ -1,11 +1,16 @@
 var elementsTable = [] ;
-var elementChoosed = [] ;
+var elementChosed = [] ;
 var answer = "";
 var y = 0 ;
 var k=0 ;
-var scor = 0 ;
 var point = 0;
+var timer = 0;
+var rewardsTable = [];
+var rewardsChosed = [];
+
+var countDownDate = new Date().getTime()+1000*120;
 container = document.getElementsByClassName("symbol");
+
 for(x = 0; x < container.length; x++){
   if(container[x].textContent != "DE"
   && container[x].textContent != "DEL"
@@ -15,21 +20,24 @@ for(x = 0; x < container.length; x++){
       y++ ;
   }
 }
-document.getElementById("score").className = "hide"
+
+
 function randomElements(){
-if(elementChoosed.length < elements.length){
-random = Math.floor(Math.random() * elements.length) ;
-answer = elements[random][1];
-ele = elements[random][0];
-randomElement = elementsTable[random].parentNode ;
-if (elementChoosed.includes(random)){
+if(elementChosed.length < elements.length){
+randomNumber = Math.floor(Math.random() * elements.length) ;
+answer = elements[randomNumber][1];
+randomElement = elementsTable[randomNumber].parentNode ;
+if (elementChosed.includes(randomNumber)){
        randomElements();
 } else {
 randomElement.setAttribute("class","checked");
-elementChoosed.push(random);
+elementChosed.push(randomNumber);
 }
 } else {
-  
+  document.getElementById("statictic").className = "show btn btn-warning"
+  document.getElementById("inputAuto").className = "hide"
+  document.getElementById("end").className = "show"
+  clearInterval(timer)
 }
 }
 
@@ -42,14 +50,16 @@ medium.addEventListener('click',gameStart);
 hard.addEventListener('click',gameStart);
 
 function gameStart(e){
+
+  countDownDate = new Date().getTime()+1000*120;
+  timer = setInterval(countDown,1000);
   randomElements();
   document.getElementById("startButton").className = "hide"
   document.getElementById("inputAuto").className = "show"
   document.getElementById("resetButton").className = "show btn btn-info"
-  document.getElementById("score").className = "show"
-  document.getElementById("timer").className = "show"
-  document.getElementById("score").innerHTML ="<div> Wynik: "+scor+"</div>"  ;
-  countDownDate = new Date().getTime()+1000*10*30;
+  document.getElementById("points").className = "col-6 left padding0 show"
+  document.getElementById("timer1").className = "col-6 left padding0 show"
+  statistics.innerHTML = "<h1>Liczba Punktów: "+point+"</h1>"
 }
 
 function checkQuestion(event){
@@ -57,72 +67,110 @@ function checkQuestion(event){
     inputAuto = document.getElementById("inputAuto").value
     if(inputAuto == answer){
       randomElement.classList.remove("checked");
-      randomElement.classList.add("true");
-      randomElement.classList.add("pink");
-      scor++ ;
-      document.getElementById("score").innerHTML ="<div> Wynik: "+scor+"</div>"  ;
-    }
+      randomElement.classList.add("goodAnswer");
+      randomElement.classList.add("okres");
+      point++;
+      countDownDate += 10*1000;
+      if(point == 2){
+        document.getElementById("walterWhite").innerHTML = '<img src="../img/walter.png" alt="">';
+        animation();
+      } 
+      else {
+        document.getElementById("walterWhite").innerHTML = "";
+      }
+      if(point == 5){
+        document.getElementById("rewards").className = "show";
+      }
+      else {
+      document.getElementById("rewards").className = "hide";
+      }
+  }
     else {
       randomElement.classList.remove("checked");
-      randomElement.classList.add("false");
-      randomElement.classList.add("pink");
+      randomElement.classList.add("badAnswer");
+      randomElement.classList.add("okres");
     }
+    statistics.innerHTML = "<h1>Liczba Punktów: "+point+"</h1>";
     randomElements();
-    document.getElementById("inputAuto").value = "";
+    event.target.value = "";
   }
 }
 
 resetButton.addEventListener("click", resetGame);
 function resetGame(e){
-  for(x = 0; x < elementsTable.length; x++){
-    elementsTable[x].parentNode.classList.remove("false");
-    elementsTable[x].parentNode.classList.remove("true");
+  for(x = 0; x < elements.length; x++){
+    elementsTable[x].parentNode.classList.remove("badAnswer");
+    elementsTable[x].parentNode.classList.remove("goodAnswer");
     elementsTable[x].parentNode.classList.remove("checked");
-    elementsTable[x].parentNode.classList.remove("pink");
-    elementsTable[x].parentNode.classList.add("pink");
+    elementsTable[x].parentNode.classList.remove("okresowy");
+    elementsTable[x].parentNode.classList.add("okresowy");
   }
-  elementChoosed = [] ;
+  elementChosed = [] ;
   document.getElementById("startButton").className = "btn btn-secondary show";
   document.getElementById("inputAuto").className = "hide";
   document.getElementById("resetButton").className = "hide";
-  document.getElementById("score").className = "show"
-  document.getElementById("timer").className = "hide"
-  scor=0
-  document.getElementById("score").innerHTML =""  ;
+  document.getElementById("points").className = "col-6 left padding0 hide";
+  document.getElementById("timer1").className = "col-6 left padding0 hide";
+  document.getElementById("statictic").className = "hide btn btn-warning"
+  document.getElementById("walterWhite").innerHTML = "";
+  point = 0;
+  clearInterval(timer);
+  countDownDate = new Date().getTime()+1000*120;
+  timer = setInterval(countDown,1000);
+  statistics.innerHTML = "";
 }
-//TIMER
-var countDownDate = new Date().getTime()+1000*10*30;
 
-var x = setInterval(function() {
+function countDown(){
+// Set the date we're counting down to
 
+
+  // Get today's date and time
   var now = new Date().getTime();
-
+    
+  // Find the distance between now and the count down date
   var distance = countDownDate - now;
-
-  var minutes = Math.floor((distance % (1000 * 10 * 30)) / (1000 * 60));
+    
+  // Time calculations for minutes and seconds
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = minutes + ":" + seconds + "";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(timer);
+    document.getElementById("demo").innerHTML = "KONIEC";
+    document.getElementById("statictic").className = "show btn btn-warning"
+    document.getElementById("inputAuto").className = "hide"
+  }
 
-  document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
-  if(scor == 1){
-    document.getElementById("chance").innerHTML = "Wybierz pierwiastek" ;
-    document.getElementsByClassName("checked").className = "pink"
-    document.getElementById("inputElem").className = "show"
-    inputElem = document.getElementById("inputElem").value
+  if(point == 2){
+    okresowy = document.getElementsByClassName("okresowy") ;
+    okresowy.add("type") = "button" ;
+    document.getElementsByClassName("okresowy").classList = "checked" ;
+  //wybieranie pierwiastka
 }
 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("timer").innerHTML = "KONIEC GRY";
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+  if(point == 5){
+    MathRandom()*30
   }
-}, 1000);
-  function checkEle(event){
-    if(event.keyCode == 13){
-      inputElem = document.getElementById("inputElem").value
-      for(x= 0 ; x < elements.length ; x++) {
-        if(inputElem == elements[x][0]){
-              elementsTable[x].parentNote.className = "checked";
-        }
+}
+ 
+  function addTime(min, max) {
+    min = countDownDate += 1*1000;
+    max = countDownDate += 80*1000;
+  }
+ 
+ 
+}
 
-      }
-    }
-  }
+// Update the count down every 1 second
+
+function animation(){
+  walterWhite.classList.add('animate__animated', 'animate__fadeInUpBig');
+}
